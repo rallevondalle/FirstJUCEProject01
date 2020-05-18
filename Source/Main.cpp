@@ -16,11 +16,13 @@ class FirstJUCEProject01Application  : public JUCEApplication
 {
 public:
     //==============================================================================
-    FirstJUCEProject01Application() {}
+    FirstJUCEProject01Application() {} //Empty constructor, good style to always include this
+
+    ~FirstJUCEProject01Application() {} //Important for debugging purposes
 
     const String getApplicationName() override       { return ProjectInfo::projectName; }
     const String getApplicationVersion() override    { return ProjectInfo::versionString; }
-    bool moreThanOneInstanceAllowed() override       { return true; }
+    bool moreThanOneInstanceAllowed() override       { return false; }
 
     //==============================================================================
     void initialise (const String& commandLine) override
@@ -60,10 +62,12 @@ public:
     class MainWindow    : public DocumentWindow
     {
     public:
+
         MainWindow (String name)  : DocumentWindow (name,
-                                                    Desktop::getInstance().getDefaultLookAndFeel()
-                                                                          .findColour (ResizableWindow::backgroundColourId),
-                                                    DocumentWindow::allButtons)
+                                                    Colours::aliceblue,
+                                                    DocumentWindow::allButtons),
+                                    memberVariable(0),
+                                    anotherMemberVariable(1)
         {
             setUsingNativeTitleBar (true);
             setContentOwned (new MainComponent(), true);
@@ -94,6 +98,8 @@ public:
         */
 
     private:
+        float memberVariable;
+        double anotherMemberVariable;
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainWindow)
     };
 

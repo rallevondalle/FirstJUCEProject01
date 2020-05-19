@@ -64,7 +64,7 @@ public:
     public:
 
         MainWindow (String name)  : DocumentWindow (name,
-                                                    Colours::black,
+                                                    Colours::red,
                                                     DocumentWindow::allButtons),
                                     memberVariable(0),
                                     anotherMemberVariable(1)

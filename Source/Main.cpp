@@ -100,6 +100,7 @@ public:
     private:
         float memberVariable;
         double anotherMemberVariable;
+        double anotherMemberVariable3;
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainWindow)
     };
 

@@ -69,8 +69,9 @@ void MainComponent::releaseResources()
 //==============================================================================
 void MainComponent::paint (Graphics& g)
 {
-    // (Our component is opaque, so we must completely fill the background with a solid colour)
+    // Define a custom color to fill our component. What if I want to use it again?
     auto abletonBackground = Colour (135, 135, 135);
+    // (Our component is opaque, so we must completely fill the background with a solid colour)
     g.fillAll (abletonBackground);
 
     // You can add your drawing code here!

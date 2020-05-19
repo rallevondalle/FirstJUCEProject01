@@ -99,12 +99,12 @@ public:
 
     private:
         float memberVariable;
-        double anotherMemberVariable;
+        double anotherMemberVariable;  // Allocated in stack.
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainWindow)
     };
 
 private:
-    std::unique_ptr<MainWindow> mainWindow;
+    std::unique_ptr<MainWindow> mainWindow;  // Smart pointer. Allocated in heap
 };
 
 //==============================================================================

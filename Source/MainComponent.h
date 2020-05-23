@@ -18,7 +18,7 @@ class TableComponent   : public Component,
 public:
     TableComponent()
     {
-        loadData();
+        loadData(); //load data from XML file
         
         addAndMakeVisible (table);
         
@@ -30,7 +30,7 @@ public:
             forEachXmlChildElement (*columnList, columnXml)
             {
                 table.getHeader().addColumn (columnXml->getStringAttribute ("name"),
-                                             columnXml->getIntAttribute ("columnId"),
+                                             columnXml->getIntAttribute ("id"),
                                              columnXml->getIntAttribute ("width"),
                                              50,
                                              400,
@@ -87,11 +87,8 @@ public:
     }
     
     int getColumnAutoSizeWidth (int columnId) override
-    {
-        if (columnId == 9)
-            return 50;
-        
-        int widest = 32;
+    {        
+        int widest = 65;
         
         for (auto i = getNumRows(); --i >= 0;)
         {

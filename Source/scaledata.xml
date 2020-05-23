@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<Scale>
+  <HEADERS>
+  <COLUMN id = "1" name="Scale Name" width="50" />
+  <COLUMN id = "2" name="Notes in scale" width="100" />
+  <COLUMN id = "3" name="Description of scale" width="100" />
+  </HEADERS>
+  <DATA>
+    <ITEM id = "1" name="Doubleharmo" notesInScale="0, 2, 3, 6, 7, 9, 10" />
+    <ITEM id = "2" name="Dorianb5" notesInScale="0, 2, 3, 5, 6, 7, 9, 10" />
+    <ITEM id = "3" name="Raga3" notesInScale="0, 1, 5, 6, 9, 10" />
+  </DATA>
+</Scale>

@@ -8,17 +8,17 @@
   ==============================================================================
 */
 #pragma once
-#include <JuceHeader.h>
+#include "../JuceLibraryCode/JuceHeader.h"
 #include "MainComponent.h"
 
 //==============================================================================
 // A child component for our table
 // TODO: Move to a different header and CPP file
-class TableComponent   : public Component,
-                         public TableListBoxModel
+class ScaleTableComponent   : public Component,
+                              public TableListBoxModel
 {
 public:
-    TableComponent();
+    ScaleTableComponent();
     
     int getNumRows() override;
     
@@ -60,5 +60,5 @@ private:
     String getAttributeNameForColumnId (const int columnId) const;
 
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (TableComponent)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ScaleTableComponent)
 };

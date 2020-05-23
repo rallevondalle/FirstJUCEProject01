@@ -65,9 +65,7 @@ public:
 
         MainWindow (String name)  : DocumentWindow (name,
                                                     Colours::black,  // We made our Window background black
-                                                    DocumentWindow::allButtons),
-                                    memberVariable(0),
-                                    anotherMemberVariable(1)
+                                                    DocumentWindow::allButtons)
         {
             setUsingNativeTitleBar (true);
             setContentOwned (new MainComponent(), true);
@@ -98,8 +96,6 @@ public:
         */
 
     private:
-        float memberVariable;
-        double anotherMemberVariable;  // Allocated in stack.
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainWindow)
     };
 

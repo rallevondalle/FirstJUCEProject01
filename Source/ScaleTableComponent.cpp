@@ -14,7 +14,7 @@ Author:  Rasmus Kjærbo
 // A child component for our table
 // TODO: Move to a different header and CPP file
 
-TableComponent::TableComponent()
+ScaleTableComponent::ScaleTableComponent()
 {
     loadData(); //load data from XML file
     
@@ -40,12 +40,12 @@ TableComponent::TableComponent()
     table.setMultipleSelectionEnabled (true);
 }
 
-int TableComponent::getNumRows() override
+int ScaleTableComponent::getNumRows() /*override*/
 {
     return numRows;
 }
 
-void TableComponent::paintRowBackground (Graphics& g, int rowNumber, int /*width*/, int /*height*/, bool rowIsSelected) override
+void ScaleTableComponent::paintRowBackground (Graphics& g, int rowNumber, int /*width*/, int /*height*/, bool rowIsSelected) /*override*/
 {
     auto alternateColour = getLookAndFeel().findColour (ListBox::backgroundColourId)
     .interpolatedWith (getLookAndFeel().findColour (ListBox::textColourId), 0.03f);
@@ -55,8 +55,8 @@ void TableComponent::paintRowBackground (Graphics& g, int rowNumber, int /*width
         g.fillAll (alternateColour);
 }
 
-void TableComponent::paintCell (Graphics& g, int rowNumber, int columnId,
-                int width, int height, bool rowIsSelected) override
+void ScaleTableComponent::paintCell (Graphics& g, int rowNumber, int columnId,
+                int width, int height, bool rowIsSelected) /*override*/
 {
     g.setColour (rowIsSelected ? Colours::darkblue : getLookAndFeel().findColour (ListBox::textColourId));
     g.setFont (font);
@@ -72,18 +72,18 @@ void TableComponent::paintCell (Graphics& g, int rowNumber, int columnId,
     g.fillRect (width - 1, 0, 1, height);
 }
 
-void TableComponent::sortOrderChanged (int newSortColumnId, bool isForwards) override
+void ScaleTableComponent::sortOrderChanged (int newSortColumnId, bool isForwards) /*override*/
 {
 
 }
 
-Component* TableComponent::refreshComponentForCell (int rowNumber, int columnId, bool /*isRowSelected*/,
-                                    Component* existingComponentToUpdate) override
+Component* ScaleTableComponent::refreshComponentForCell (int rowNumber, int columnId, bool /*isRowSelected*/,
+                                    Component* existingComponentToUpdate) /*override*/
 {
     return nullptr;  // to avoid warnings for now
 }
 
-int TableComponent::getColumnAutoSizeWidth (int columnId) override
+int ScaleTableComponent::getColumnAutoSizeWidth (int columnId) /*override*/
 {        
     int widest = 65;
     
@@ -100,36 +100,36 @@ int TableComponent::getColumnAutoSizeWidth (int columnId) override
     return widest + 8;
 }
 
-int TableComponent::getSelection (const int rowNumber) const
+int ScaleTableComponent::getSelection (const int rowNumber) const
 {
     return dataList->getChildElement (rowNumber)->getIntAttribute ("Select");
 }
 
-void TableComponent::setSelection (const int rowNumber, const int newSelection)
+void ScaleTableComponent::setSelection (const int rowNumber, const int newSelection)
 {
     dataList->getChildElement (rowNumber)->setAttribute ("Select", newSelection);
 }
 
-String TableComponent::getText (const int columnNumber, const int rowNumber) const
+String ScaleTableComponent::getText (const int columnNumber, const int rowNumber) const
 {
     return dataList->getChildElement (rowNumber)->getStringAttribute (getAttributeNameForColumnId (columnNumber));
 }
 
-void TableComponent::setText (const int columnNumber, const int rowNumber, const String& newText)
+void ScaleTableComponent::setText (const int columnNumber, const int rowNumber, const String& newText)
 {
     const auto& columnName = table.getHeader().getColumnName (columnNumber);
     dataList->getChildElement (rowNumber)->setAttribute (columnName, newText);
 }
 
-void TableComponent::resized() override
+void ScaleTableComponent::resized() /*override*/
 {
     table.setBoundsInset (BorderSize<int> (8));
 }
 
-void TableComponent::paint (Graphics&) override {}
+void ScaleTableComponent::paint (Graphics&) /*override*/ {}
 
 
-void TableComponent::loadData()
+void ScaleTableComponent::loadData()
 {
     auto dir = File::getCurrentWorkingDirectory();
     
@@ -151,7 +151,7 @@ void TableComponent::loadData()
     }
 }
 
-String TableComponent::getAttributeNameForColumnId (const int columnId) const
+String ScaleTableComponent::getAttributeNameForColumnId (const int columnId) const
 {
     forEachXmlChildElement (*columnList, columnXml)
     {
@@ -162,4 +162,4 @@ String TableComponent::getAttributeNameForColumnId (const int columnId) const
     return {};
 }
 //==============================================================================
-//JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (TableComponent)
+//JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ScaleTableComponent)

@@ -11,6 +11,7 @@
 //==============================================================================
 MainComponent::MainComponent()
 {
+    addAndMakeVisible (scaleTable);
     // Make sure you set the size of the component after
     // you add any child components.
     setSize (800, 600);
@@ -82,4 +83,6 @@ void MainComponent::resized()
     // This is called when the MainContentComponent is resized.
     // If you add any child components, this is where you should
     // update their positions.
+    auto halfWidth = getWidth() / 2;
+    scaleTable.setBounds (0, 0, halfWidth, getHeight());
 }

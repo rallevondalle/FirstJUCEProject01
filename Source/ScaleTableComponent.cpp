@@ -135,10 +135,10 @@ void ScaleTableComponent::loadData()
     
     int numTries = 0;
     
-    while (! dir.getChildFile ("Resources").exists() && numTries++ < 15)
+    while (! dir.getChildFile ("Source").exists() && numTries++ < 15)
         dir = dir.getParentDirectory();
     
-    auto tableFile = dir.getChildFile ("Resources").getChildFile ("scaledata.xml");
+    auto tableFile = dir.getChildFile ("Source").getChildFile ("scaledata.xml");
     
     if (tableFile.exists())
     {
@@ -161,5 +161,3 @@ String ScaleTableComponent::getAttributeNameForColumnId (const int columnId) con
     
     return {};
 }
-//==============================================================================
-//JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ScaleTableComponent)

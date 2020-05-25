@@ -12,7 +12,6 @@ Author:  Rasmus Kjærbo
 
 //==============================================================================
 // A child component for our table
-// TODO: Move to a different header and CPP file
 
 ScaleTableComponent::ScaleTableComponent()
 {
@@ -40,7 +39,7 @@ ScaleTableComponent::ScaleTableComponent()
     table.setMultipleSelectionEnabled (true);
 }
 
-int ScaleTableComponent::getNumRows() /*override*/
+int ScaleTableComponent::getNumRows()
 {
     return numRows;
 }
@@ -56,7 +55,7 @@ void ScaleTableComponent::paintRowBackground (Graphics& g, int rowNumber, int /*
 }
 
 void ScaleTableComponent::paintCell (Graphics& g, int rowNumber, int columnId,
-                int width, int height, bool rowIsSelected) /*override*/
+                int width, int height, bool rowIsSelected)
 {
     g.setColour (rowIsSelected ? Colours::darkblue : getLookAndFeel().findColour (ListBox::textColourId));
     g.setFont (font);
@@ -72,18 +71,18 @@ void ScaleTableComponent::paintCell (Graphics& g, int rowNumber, int columnId,
     g.fillRect (width - 1, 0, 1, height);
 }
 
-void ScaleTableComponent::sortOrderChanged (int newSortColumnId, bool isForwards) /*override*/
+void ScaleTableComponent::sortOrderChanged (int newSortColumnId, bool isForwards)
 {
 
 }
 
 Component* ScaleTableComponent::refreshComponentForCell (int rowNumber, int columnId, bool /*isRowSelected*/,
-                                    Component* existingComponentToUpdate) /*override*/
+                                    Component* existingComponentToUpdate)
 {
     return nullptr;  // to avoid warnings for now
 }
 
-int ScaleTableComponent::getColumnAutoSizeWidth (int columnId) /*override*/
+int ScaleTableComponent::getColumnAutoSizeWidth (int columnId)
 {        
     int widest = 65;
     
@@ -121,12 +120,15 @@ void ScaleTableComponent::setText (const int columnNumber, const int rowNumber, 
     dataList->getChildElement (rowNumber)->setAttribute (columnName, newText);
 }
 
-void ScaleTableComponent::resized() /*override*/
+void ScaleTableComponent::resized()
 {
     table.setBoundsInset (BorderSize<int> (8));
 }
 
-void ScaleTableComponent::paint (Graphics&) /*override*/ {}
+void ScaleTableComponent::paint (Graphics& g)
+{
+    
+}
 
 
 void ScaleTableComponent::loadData()

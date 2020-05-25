@@ -9,7 +9,6 @@
 */
 #include <JuceHeader.h>
 #include "MainComponent.h"
-#include "ScaleTableComponent.h"
 
 //==============================================================================
 class FirstJUCEProject01Application  : public JUCEApplication

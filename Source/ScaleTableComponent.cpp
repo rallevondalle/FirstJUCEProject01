@@ -11,8 +11,6 @@ Author:  Rasmus Kjærbo
 #include "ScaleTableComponent.h"
 
 //==============================================================================
-// A child component for our table
-
 ScaleTableComponent::ScaleTableComponent()
 {
     loadData(); //load data from XML file

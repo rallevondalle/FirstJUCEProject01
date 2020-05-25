@@ -9,11 +9,8 @@
 */
 #pragma once
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "MainComponent.h"
 
 //==============================================================================
-// A child component for our table
-// TODO: Move to a different header and CPP file
 class ScaleTableComponent   : public Component,
                               public TableListBoxModel
 {

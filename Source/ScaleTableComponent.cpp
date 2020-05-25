@@ -22,13 +22,14 @@ ScaleTableComponent::ScaleTableComponent()
     
     if (columnList != nullptr)
     {
-        forEachXmlChildElement (*columnList, columnXml) {
+        forEachXmlChildElement (*columnList, columnXml)
+        {
             table.getHeader().addColumn (columnXml->getStringAttribute ("name"),
-                                          columnXml->getIntAttribute ("id"),
-                                          columnXml->getIntAttribute ("width"),
-                                          50,
-                                          400,
-                                          TableHeaderComponent::defaultFlags);
+                                         columnXml->getIntAttribute ("id"),
+                                         columnXml->getIntAttribute ("width"),
+                                         50,
+                                         400,
+                                         TableHeaderComponent::defaultFlags);
         }
     }
     
@@ -77,6 +78,7 @@ void ScaleTableComponent::sortOrderChanged (int newSortColumnId, bool isForwards
 Component* ScaleTableComponent::refreshComponentForCell (int rowNumber, int columnId, bool /*isRowSelected*/,
                                     Component* existingComponentToUpdate)
 {
+    jassert (existingComponentToUpdate == nullptr);
     return nullptr;  // to avoid warnings for now
 }
 
@@ -155,7 +157,7 @@ String ScaleTableComponent::getAttributeNameForColumnId (const int columnId) con
 {
     forEachXmlChildElement (*columnList, columnXml)
     {
-        if (columnXml->getIntAttribute ("columnId") == columnId)
+        if (columnXml->getIntAttribute ("id") == columnId)
             return columnXml->getStringAttribute ("name");
     }
     

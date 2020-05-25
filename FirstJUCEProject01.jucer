@@ -3,14 +3,14 @@
 <JUCERPROJECT id="DnKXJP" name="FirstJUCEProject01" projectType="guiapp" jucerVersion="5.4.7">
   <MAINGROUP id="DgR2De" name="FirstJUCEProject01">
     <GROUP id="{644D2F19-A6F2-FD68-5BBA-8B7E97649C64}" name="Source">
+      <FILE id="EwdV6M" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <FILE id="RJ71Hu" name="MainComponent.cpp" compile="1" resource="0"
+            file="Source/MainComponent.cpp"/>
       <FILE id="GywLUK" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
       <FILE id="Yf35CN" name="ScaleTableComponent.cpp" compile="1" resource="0"
             file="Source/ScaleTableComponent.cpp"/>
       <FILE id="QatW82" name="ScaleTableComponent.h" compile="0" resource="0"
             file="Source/ScaleTableComponent.h"/>
-      <FILE id="RJ71Hu" name="MainComponent.cpp" compile="1" resource="0"
-            file="Source/MainComponent.cpp"/>
-      <FILE id="EwdV6M" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
